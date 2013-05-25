@@ -1,0 +1,8 @@
+This is the README of the source code of VAutoDeint project. For a documention of usage,
+see the comments in VAutoDeint.py
+
+The external filter of this project has been compiled successfully under Visual Studio 
+2012 in Windows 7 Professional SP1, however, it hasn't been tested under other platforms
+and other systems. I myself guess it can be compiled under Windows XP using Visual
+Studio 2008 or later, but I am not sure. Moreover, there is no script to compile it on
+linux using MinGW, while any patch that help solve the problem will be always welcomed.
