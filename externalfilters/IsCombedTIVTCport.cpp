@@ -145,7 +145,7 @@ static const VSFrameRef *VS_CC IsCombedTIVTCGetFrame(int n,int activationReason,
   uint8_t *dstp;
   for(int i=0;i<fi->numPlanes;i++){
     dstp=vsapi->getWritePtr(dst,i);
-	dstp[0]=0;
+    dstp[0]=0;
   }
 
   //pixel

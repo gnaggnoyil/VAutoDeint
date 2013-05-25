@@ -41,7 +41,7 @@ static void VS_CC PlaneDifferenceFromPreviousFree(void *instanceData,VSCore *cor
     return;
   if(tmp->node==NULL){
     vsapi->freeNode(tmp->node);
-	tmp->node=NULL;
+    tmp->node=NULL;
   }
   free(tmp);
   return;
@@ -69,8 +69,8 @@ static const VSFrameRef *VS_CC PlaneDifferenceFromPreviousGetFrame(int n,int act
   const int nminus1=(n==0)?0:(n-1);
   if(activationReason==arInitial){
     vsapi->requestFrameFilter(nminus1,diffprop->node,frameCtx);
-	vsapi->requestFrameFilter(n,diffprop->node,frameCtx);
-	return NULL;
+    vsapi->requestFrameFilter(n,diffprop->node,frameCtx);
+    return NULL;
   }
   if(activationReason!=arAllFramesReady)
     return NULL;
@@ -81,13 +81,13 @@ static const VSFrameRef *VS_CC PlaneDifferenceFromPreviousGetFrame(int n,int act
   uint8_t *dstp;
   for(int i=0;i<fi->numPlanes;i++){
     dstp=vsapi->getWritePtr(dst,i);
-	dstp[0]=0;
+    dstp[0]=0;
   }
 
   if(n==0){
     vsapi->propSetFloat(vsapi->getFramePropsRW(dst),diffprop->prop,0.000000,paReplace);
-	vsapi->freeFrame(now);
-	return dst;
+    vsapi->freeFrame(now);
+    return dst;
   }
 
   const VSFrameRef *prev=vsapi->getFrameFilter(nminus1,diffprop->node,frameCtx);
@@ -101,9 +101,9 @@ static const VSFrameRef *VS_CC PlaneDifferenceFromPreviousGetFrame(int n,int act
   int y,x;
   for(y=0;y<height;y++){
     for(x=0;x<width;x++)
-	  acc+=abs(srcnow[x]-srcprev[x]);
+      acc+=abs(srcnow[x]-srcprev[x]);
     srcnow+=srcStride;
-	srcprev+=srcStride;
+    srcprev+=srcStride;
   }
 
   vsapi->propSetFloat(vsapi->getFramePropsRW(dst),diffprop->prop,acc/((double)width*height),paReplace);
