@@ -61,7 +61,7 @@ import sys
 #      core.avs.LoadPlugin(TDeint.dllpath+"tdeint.dll")                                             #
 #      """Load other plugins"""                                                                     #
 #      clip=THE_CLIP_YOU_WANT_TO_DETECT                                                             #
-#      autodeint=VAutoDeint.VAutoDeint(core)                                                                   #
+#      autodeint=VAutoDeint.VAutoDeint(core)                                                        #
 #      dict=autodeint.autoDeintDetect(clip)#get a dictionary describing the source type of the      #
 #                                          #clip. You can print it to see what it contains.         #
 #      func=autdeint.getProcessFilter(dict)#get a processing filter according to the dictionary     #
