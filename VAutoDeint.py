@@ -302,4 +302,4 @@ if __name__=="__main__":
     print(video.num_frames,video.fps_num)
     print(dict)
     video1=autodeint.getProcessFilter(dict)(video)
-    print(video1.num_frames, video1.fps_num)
+    print(video1.num_frames,video1.fps_num)
