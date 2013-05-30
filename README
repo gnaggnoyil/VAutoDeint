@@ -8,3 +8,7 @@ Studio 2008 or later, but I am not sure. Moreover, there is no script to compile
 linux using MinGW, while any patch that help solve the problem will be always welcomed.
 
 Binary download at: https://www.dropbox.com/s/1ubj5w9et83weg9/VAutoDeint.zip
+
+Special thanks to tricial, Myrsloik, Chikuzen, doom9 and all people who wrote the source
+code I read to finish the project, and those who helped me with the algorithm of the
+project.
