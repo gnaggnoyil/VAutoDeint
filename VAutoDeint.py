@@ -68,7 +68,7 @@ import sys
 #                                          #clip. You can print it to see what it contains.         #
 #      func=autdeint.getProcessFilter(dict)#get a processing filter according to the dictionary     #
 #                                          #given, which can be used later.                         #
-#      video1=func(video)                                                                           #
+#      video1=func(core)                                                                            #
 #      """postprocessing"""                                                                         #
 #                                                                                                   #
 #####################################################################################################
