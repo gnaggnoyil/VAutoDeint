@@ -132,15 +132,22 @@ class VAutoDeint():
             return "FieldOrder_BFF"
         return "FieldOrder_UNKNOWN"
  
-    def autoDeintDetect(self,clip):
+    def autoDeintDetect(self,clip,info=False,infoOutput=sys.stderr):
         tot_frames=clip.num_frames
         diff=self.deintconf.PlaneDifferenceFromPrevious(clip,0,prop="YPlaneDifference")
-        IsCombedTIVTCClip=self.deintconf.IsCombedTIVTC(clip);
+        IsCombedTIVTCClip=self.deintconf.IsCombedTIVTC(clip)
         motion_data=[]
         comb_data=[]
-        for i in range(tot_frames):
-            motion_data.append((diff.get_frame(i).props.YPlaneDifference[0]>=1.0))
-            comb_data.append(bool(IsCombedTIVTCClip.get_frame(i).props._IsCombedTIVTC[0]))
+        if info:
+            for i in range(tot_frames):
+                motion_data.append((diff.get_frame(i).props.YPlaneDifference[0]>=1.0))
+                comb_data.append(bool(IsCombedTIVTCClip.get_frame(i).props._IsCombedTIVTC[0]))
+                print("\rcollecting motion and comb data...%d of %d completed." %(i,tot_frames),end="",file=infoOutput)
+            print(file=infoOutput)
+        else:
+            for i in range(tot_frames):
+                motion_data.append((diff.get_frame(i).props.YPlaneDifference[0]>=1.0))
+                comb_data.append(bool(IsCombedTIVTCClip.get_frame(i).props._IsCombedTIVTC[0]))
         """check for interlace type"""
         sectionLength=self.SECTION_LENGTH
         numSections=tot_frames//sectionLength
@@ -222,13 +229,25 @@ class VAutoDeint():
             tot_frames=abff.num_frames
             field_dataB=[]
             diff=self.deintconf.PlaneDifferenceFromPrevious(abff,0,prop="YDifferencePrevious")
-            for i in range(tot_frames):
-                field_dataB.append(diff.get_frame(i).props.YDifferencePrevious[0]);
+            if info:
+                for i in range(tot_frames):
+                    field_dataB.append(diff.get_frame(i).props.YDifferencePrevious[0])
+                    print("\rcollecting bff field difference data...%d of %d completed." %(i,tot_frames),end="",file=infoOutput)
+                print(file=infoOutput)
+            else:
+                for i in range(tot_frames):
+                    field_dataB.append(diff.get_frame(i).props.YDifferencePrevious[0])
             atff=self.std.SeparateFields(clip,tff=True)
             field_dataT=[]
             diff=self.deintconf.PlaneDifferenceFromPrevious(atff,0,prop="YDifferencePrevious")
-            for i in range(tot_frames):
-                field_dataT.append(diff.get_frame(i).props.YDifferencePrevious[0]);
+            if info:
+                for i in range(tot_frames):
+                    field_dataT.append(diff.get_frame(i).props.YDifferencePrevious[0])
+                    print("\rcollecting tff field difference data...%d of %d completed." %(i,tot_frames),end="",file=infoOutput)
+                print(file=infoOutput)
+            else:
+                for i in range(tot_frames):
+                    field_dataT.append(diff.get_frame(i).props.YDifferencePrevious[0])
             num_field_sections=tot_frames//self.FIELD_SECTION_LENGTH
             new_field_section_length=num_field_sections*self.FIELD_SECTION_LENGTH
             all_field_section_type=[self.__get_field_type(field_dataB[i:(i+self.FIELD_SECTION_LENGTH)],field_dataT[i:(i+self.FIELD_SECTION_LENGTH)]) for i in range(0,new_field_section_length,self.FIELD_SECTION_LENGTH)]
