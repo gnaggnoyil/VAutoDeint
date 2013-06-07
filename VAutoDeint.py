@@ -232,7 +232,7 @@ class VAutoDeint():
                 field_dataT.append(diff.get_frame(i).props.YDifferencePrevious[0]);
             num_field_sections=tot_frames//self.FIELD_SECTION_LENGTH
             new_field_section_length=num_field_sections*self.FIELD_SECTION_LENGTH
-            all_field_section_type=[self.__get_field_type(field_dataB[i:(i+self.FIELD_SECTION_LENGTH)], field_dataT[i:(i+self.FIELD_SECTION_LENGTH)]) for i in range(0,new_field_section_length,self.FIELD_SECTION_LENGTH)]
+            all_field_section_type=[self.__get_field_type(field_dataB[i:(i+self.FIELD_SECTION_LENGTH)],field_dataT[i:(i+self.FIELD_SECTION_LENGTH)]) for i in range(0,new_field_section_length,self.FIELD_SECTION_LENGTH)]
             field_section_counts={}
             for i in range(0,num_field_sections):
                 if all_field_section_type[i] in field_section_counts.keys():
