@@ -142,7 +142,6 @@ class VAutoDeint():
             motion_data.append((diff.get_frame(i).props.YPlaneDifference[0]>=1.0))
             comb_data.append(bool(IsCombedTIVTCClip.get_frame(i).props._IsCombedTIVTC[0]))
         """check for interlace type"""
-        sys.stderr.write("cheking for interlacing\n")
         sectionLength=self.SECTION_LENGTH
         numSections=tot_frames//sectionLength
         newLength=numSections*sectionLength
