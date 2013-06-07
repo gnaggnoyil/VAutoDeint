@@ -1,5 +1,5 @@
 /*
-  VAutoDeint.py: Copyright (C) 2013  Acfun (www dot acfun dot tv)
+  PlaneDifferenceFromPrevious.cpp: Copyright (C) 2013  Acfun (www dot acfun dot tv)
   
   Author: Li Yonggang (gnaggnoyil at gmail dot com)
   
@@ -15,9 +15,9 @@
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
   General Public License for more details.
   
-  You should have received a copy of the GNU Lesser General Public
-  License along with the author; if not, write to the Free Software
-  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+  You should have received a copy of the GNU General Public License
+  along with the author; if not, write to the Free Software Foundation,
+  Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 */
 
 #include <stdio.h>
